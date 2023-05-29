@@ -123,7 +123,7 @@ if [ ! -f ".gitignore" ]; then
   echo "*.env" >> .gitignore
 fi
 
-#git pull origin main --allow-unrelated-histories --rebase
+git pull origin main --allow-unrelated-histories --rebase
 
 if [ -n "$(git status --porcelain)" ]; then 
   echo "Changes detected in conf directory, starting the commit process"
