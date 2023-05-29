@@ -4,8 +4,6 @@ export CONFIG_PATH=/Users/daoudlamalmi/.backup
 export TEMP=$CONFIG_PATH/temp.txt
 export TEMP_DIR=$CONFIG_PATH/temp
 export CONF_DIR=$CONFIG_PATH/conf
-export OH_MY_ZSH=$CONFIG_PATH/.oh-my-zsh
-export ZSH=$CONFIG_PATH/.zsh
 export ASTRONVIM=/Users/daoudlamalmi/.config/nvim/lua/daoudlamalmi
 
 cd $ASTRONVIM
@@ -23,14 +21,6 @@ touch temp.txt
 
 if [ ! -d "conf" ]; then
     mkdir "conf"
-fi
-
-if [ ! -d ".oh-my-zsh" ]; then
-    mkdir ".oh-my-zsh"
-fi
-
-if [ ! -d ".zsh" ]; then
-    mkdir ".zsh"
 fi
 
 if [ ! -f "brew.txt" ]; then
@@ -117,33 +107,13 @@ if [ $DIFF_STATUS -eq 1 ]; then
     echo "$DIFF"
 fi
 
-rsync -aqv --exclude='.git/' --exclude='.ds_store' --exclude='nvim/' --exclude='*.md' "/Users/daoudlamalmi/.config/" "$TEMP_DIR"
+rsync -aqv --exclude='.git/' --exclude='.ds_store' --exclude='nvim/' "/Users/daoudlamalmi/.config/" "$TEMP_DIR"
 
 DIFF=$(diff -ru "$TEMP_DIR" "$CONF_DIR")
 DIFF_STATUS=$?
 
 if [ $DIFF_STATUS -eq 1 ]; then 
     rsync -r $TEMP_DIR/ $CONF_DIR
-    echo "$DIFF"
-fi
-
-rsync -aqv --exclude='.git/' --exclude='.ds_store' --exclude='*.md' "/Users/daoudlamalmi/.oh-my-zsh/" "$TEMP_DIR"
-
-DIFF=$(diff -ru "$TEMP_DIR" "$OH_MY_ZSH")
-DIFF_STATUS=$?
-
-if [ $DIFF_STATUS -eq 1 ]; then 
-    rsync -r $TEMP_DIR/ $OH_MY_ZSH
-    echo "$DIFF"
-fi
-
-rsync -aqv --exclude='.git/' --exclude='.ds_store' --exclude='*.md' "/Users/daoudlamalmi/.zsh/" "$TEMP_DIR"
-
-DIFF=$(diff -ru "$TEMP_DIR" "$ZSH")
-DIFF_STATUS=$?
-
-if [ $DIFF_STATUS -eq 1 ]; then 
-    rsync -r $TEMP_DIR/ $ZSH
     echo "$DIFF"
 fi
 
@@ -168,16 +138,10 @@ if [ ! -f ".gitignore" ]; then
 fi
 
 if [ -n "$(git status --porcelain)" ]; then
-  # Stash any changes
   git stash save "Auto-stashed before pull"
-  
-  # Pull the latest changes
   git pull origin main --allow-unrelated-histories --rebase
-  
-  # Unstash the changes
   git stash pop
 else
-  # If there are no changes, just do the pull
   git pull origin main --allow-unrelated-histories --rebase
 fi
 
