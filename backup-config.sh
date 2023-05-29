@@ -4,6 +4,8 @@ export CONFIG_PATH=/Users/daoudlamalmi/.backup
 export TEMP=$CONFIG_PATH/temp.txt
 export TEMP_DIR=$CONFIG_PATH/temp
 export CONF_DIR=$CONFIG_PATH/conf
+export OH_MY_ZSH=$CONFIG_PATH/.oh-my-zsh
+export ZSH=$CONFIG_PATH/.zsh
 export ASTRONVIM=/Users/daoudlamalmi/.config/nvim/lua/daoudlamalmi
 
 cd $ASTRONVIM
@@ -21,6 +23,14 @@ touch temp.txt
 
 if [ ! -d "conf" ]; then
     mkdir "conf"
+fi
+
+if [ ! -d ".oh-my-zsh" ]; then
+    mkdir ".oh-my-zsh"
+fi
+
+if [ ! -d ".zsh" ]; then
+    mkdir ".zsh"
 fi
 
 if [ ! -f "brew.txt" ]; then
@@ -114,6 +124,26 @@ DIFF_STATUS=$?
 
 if [ $DIFF_STATUS -eq 1 ]; then 
     rsync -r $TEMP_DIR/ $CONF_DIR
+    echo "$DIFF"
+fi
+
+rsync -aqv --exclude='.git/' --exclude='.ds_store' "/Users/daoudlamalmi/.oh-my-zsh/" "$TEMP_DIR"
+
+DIFF=$(diff -ru "$TEMP_DIR" "$OH_MY_ZSH")
+DIFF_STATUS=$?
+
+if [ $DIFF_STATUS -eq 1 ]; then 
+    rsync -r $TEMP_DIR/ $OH_MY_ZSH
+    echo "$DIFF"
+fi
+
+rsync -aqv --exclude='.git/' --exclude='.ds_store' "/Users/daoudlamalmi/.zsh/" "$TEMP_DIR"
+
+DIFF=$(diff -ru "$TEMP_DIR" "$ZSH")
+DIFF_STATUS=$?
+
+if [ $DIFF_STATUS -eq 1 ]; then 
+    rsync -r $TEMP_DIR/ $ZSH
     echo "$DIFF"
 fi
 
