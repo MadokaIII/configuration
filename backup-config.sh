@@ -137,7 +137,11 @@ if [ ! -f ".gitignore" ]; then
   echo "*.env" >> .gitignore
 fi
 
+git stash save "Auto-stashed before pull"
+
 git pull origin main --allow-unrelated-histories --rebase
+
+git stash pop
 
 if [ -n "$(git status --porcelain)" ]; then 
   echo "Changes detected in conf directory, starting the commit process"
