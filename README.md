@@ -1,2 +1,2 @@
 # configuration
-A Save of all my configuration file 
+An Automatic Save of all my configuration file 
