@@ -117,7 +117,7 @@ if [ $DIFF_STATUS -eq 1 ]; then
     echo "$DIFF"
 fi
 
-rsync -aqvl --exclude='.git/' --exclude='.ds_store' --exclude='nvim/' "/Users/daoudlamalmi/.config/" "$TEMP_DIR"
+rsync -aqv --exclude='.git/' --exclude='.ds_store' --exclude='nvim/' "/Users/daoudlamalmi/.config/" "$TEMP_DIR"
 
 DIFF=$(diff -ru "$TEMP_DIR" "$CONF_DIR")
 DIFF_STATUS=$?
@@ -127,7 +127,7 @@ if [ $DIFF_STATUS -eq 1 ]; then
     echo "$DIFF"
 fi
 
-rsync -aqvl --exclude='.git/' --exclude='.ds_store' "/Users/daoudlamalmi/.oh-my-zsh/" "$TEMP_DIR"
+rsync -aqv --exclude='.git/' --exclude='.ds_store' "/Users/daoudlamalmi/.oh-my-zsh/" "$TEMP_DIR"
 
 DIFF=$(diff -ru "$TEMP_DIR" "$OH_MY_ZSH")
 DIFF_STATUS=$?
@@ -137,7 +137,7 @@ if [ $DIFF_STATUS -eq 1 ]; then
     echo "$DIFF"
 fi
 
-rsync -aqvl --exclude='.git/' --exclude='.ds_store' "/Users/daoudlamalmi/.zsh/" "$TEMP_DIR"
+rsync -aqv --exclude='.git/' --exclude='.ds_store' "/Users/daoudlamalmi/.zsh/" "$TEMP_DIR"
 
 DIFF=$(diff -ru "$TEMP_DIR" "$ZSH")
 DIFF_STATUS=$?
