@@ -39,6 +39,10 @@ if [ ! -f ".yabairc" ]; then
   touch ".yabairc"
 fi
 
+if [ ! -f ".p10k.zsh" ]; then
+  touch ".p10k.zsh"
+fi
+
 if [ ! -f "backup-config.sh" ]; then
   touch "backup-config.sh"
 fi
@@ -80,6 +84,16 @@ DIFF_STATUS=$?
 
 if [ $DIFF_STATUS -eq 1 ]; then
     cat $TEMP > ".skhdrc"
+    echo "$DIFF"
+fi
+
+cat "/Users/daoudlamalmi/.p10k.zsh" > $TEMP
+
+DIFF=$(diff -u ".p10k.zsh" "$TEMP")
+DIFF_STATUS=$?
+
+if [ $DIFF_STATUS -eq 1 ]; then
+    cat $TEMP > ".p10k.zsh"
     echo "$DIFF"
 fi
 
