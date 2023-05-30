@@ -111,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export VISUAL=nvim
 export MallocNanoZone=0
-source ~/.zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 alias vi="nvim"
 alias py="python3"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

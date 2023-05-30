@@ -33,6 +33,7 @@ grep
 gts
 harfbuzz
 highway
+htop
 icu4c
 imath
 isl
@@ -43,6 +44,7 @@ julia
 krb5
 lazygit
 libavif
+libevent
 libgit2
 libidn2
 libmpc
@@ -80,6 +82,8 @@ mbedtls@2
 mpdecimal
 mpfr
 msgpack
+ncurses
+neofetch
 neovim
 netpbm
 node
@@ -93,6 +97,7 @@ openssl@1.1
 openssl@3
 p7zip
 pango
+pcre
 pcre2
 perl
 php
@@ -103,6 +108,7 @@ readline
 ripgrep
 rtmpdump
 ruby
+screenresolution
 six
 sqlite
 tidy-html5
@@ -116,5 +122,6 @@ xorgproto
 xz
 yabai
 z3
+zsh
 zstd
 alacritty
