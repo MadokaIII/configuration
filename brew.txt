@@ -112,6 +112,7 @@ screenresolution
 six
 sqlite
 tidy-html5
+tmux
 tree-sitter
 unibilium
 unixodbc
