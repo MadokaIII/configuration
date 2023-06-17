@@ -112,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export VISUAL=nvim
 export MallocNanoZone=0
+export RUSTFLAGS="-L/opt/homebrew/opt/libmagic/lib"
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 alias vi="nvim"
 alias py="python3"
