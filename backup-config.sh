@@ -4,7 +4,7 @@ export CONFIG_PATH=/Users/daoudlamalmi/.backup
 export TEMP=$CONFIG_PATH/temp.txt
 export TEMP_DIR=$CONFIG_PATH/temp
 export CONF_DIR=$CONFIG_PATH/conf
-export ASTRONVIM=/Users/daoudlamalmi/.config/nvim/lua/daoudlamalmi
+export ASTRONVIM=/Users/daoudlamalmi/.config/nvim/lua/madokaiii/
 
 cd $ASTRONVIM
 
