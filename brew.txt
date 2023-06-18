@@ -11,6 +11,7 @@ c-ares
 ca-certificates
 cairo
 capstone
+cmake
 composer
 curl
 doxygen
@@ -88,6 +89,7 @@ libzip
 lima
 little-cms2
 llvm
+lpeg
 lua
 luajit
 luarocks
@@ -101,7 +103,6 @@ mpfr
 msgpack
 ncurses
 neofetch
-neovim
 netpbm
 nettle
 node
@@ -124,6 +125,7 @@ perl
 php
 pinentry
 pixman
+pkg-config
 python@3.11
 qemu
 qrencode

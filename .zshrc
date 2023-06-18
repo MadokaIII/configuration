@@ -116,9 +116,11 @@ export RUSTFLAGS="-L/opt/homebrew/opt/libmagic/lib"
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 alias vi="nvim"
 alias py="python3"
+export PATH="/opt/nvim-macos/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+
 
